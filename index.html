@@ -7,8 +7,75 @@
 </head>
 <body>
     <script>
+      let playerScore = 0;
+      let computerScore = 0;
 
-      console.log("Hello, World!")
+      function getComputerChoice() {
+        if (Math.floor(Math.random() * 3) === 0) {
+          return "Rock!";
+        } else if (Math.floor(Math.random() * 3) === 1) {
+          return "Paper!";
+        } else {
+          return "Scissors!";
+        }
+      }
+
+      function getHumanChoice() {
+        let choice = prompt("[R]ock/[P]aper/[S]cissor?");
+        if (choice.toUpperCase() === "R") {
+          return "Rock!";
+        } else if (choice.toUpperCase() === "P") {
+          return "Paper!";
+        } else if (choice.toUpperCase() === "S"){
+          return "Scissors!";
+        } else {
+          return "Invalid Input";
+        }
+      }
+  
+      function compareChoices(humanChoice, ComputerChoice) {
+        // Win Conditions
+        if((humanChoice === "Rock!" && computerChoice === "Scissors!")
+          || (humanChoice === "Paper!" && computerChoice === "Rock!")
+          || (humanChoice === "Scissors!" && computerChoice === "Paper!")) 
+          {
+            return "Player";
+          } 
+        else if (humanChoice === computerChoice) {
+          return "Tie!";
+        } else {
+          return "Computer";
+        }
+      }
+
+      function playRound() {
+        humanChoice = getHumanChoice();
+        console.log("Player: " + humanChoice);
+
+        computerChoice = getComputerChoice();
+        console.log("Computer: " + computerChoice);
+
+        console.log(compareChoices(humanChoice, computerChoice));
+        switch(compareChoices(humanChoice, computerChoice)) {
+          case "Player":
+            ++playerScore;
+            return `Player Wins! ${humanChoice} beats ${computerChoice}`;
+          case "Computer":
+            ++computerScore;
+            return `Computer Wins! ${computerChoice} beats ${humanChoice}`;
+          case "Tie":
+            return "Tie!"
+        }
+      }
+
+      function playGame() {
+        for (let i = 1; i <= 5; i++) {
+          console.log(playRound())
+        }
+        console.log(`Player Score: ${playerScore} - Computer Score: ${computerScore}`);
+      }
+
+      playGame();
     </script>
 </body>
 </html>
