@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rock Paper Scissors!</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors!</title>
+  </head>
+  <body>
     <script>
       let playerScore = 0;
       let computerScore = 0;
@@ -26,23 +26,23 @@
           return "Rock!";
         } else if (choice.toUpperCase() === "P") {
           return "Paper!";
-        } else if (choice.toUpperCase() === "S"){
+        } else if (choice.toUpperCase() === "S") {
           return "Scissors!";
         } else {
           return "Invalid Input";
         }
       }
-  
+
       function compareChoices(humanChoice, ComputerChoice) {
         // Win Conditions
-        if((humanChoice === "Rock!" && computerChoice === "Scissors!")
-          || (humanChoice === "Paper!" && computerChoice === "Rock!")
-          || (humanChoice === "Scissors!" && computerChoice === "Paper!")) 
-          {
-            return "Player";
-          } 
-        else if (humanChoice === computerChoice) {
-          return "Tie!";
+        if (
+          (humanChoice === "Rock!" && computerChoice === "Scissors!") ||
+          (humanChoice === "Paper!" && computerChoice === "Rock!") ||
+          (humanChoice === "Scissors!" && computerChoice === "Paper!")
+        ) {
+          return "Player";
+        } else if (humanChoice === computerChoice) {
+          return "Tie";
         } else {
           return "Computer";
         }
@@ -56,7 +56,7 @@
         console.log("Computer: " + computerChoice);
 
         console.log(compareChoices(humanChoice, computerChoice));
-        switch(compareChoices(humanChoice, computerChoice)) {
+        switch (compareChoices(humanChoice, computerChoice)) {
           case "Player":
             ++playerScore;
             return `Player Wins! ${humanChoice} beats ${computerChoice}`;
@@ -64,18 +64,20 @@
             ++computerScore;
             return `Computer Wins! ${computerChoice} beats ${humanChoice}`;
           case "Tie":
-            return "Tie!"
+            return "Tie!";
         }
       }
 
       function playGame() {
         for (let i = 1; i <= 5; i++) {
-          console.log(playRound())
+          console.log(playRound());
         }
-        console.log(`Player Score: ${playerScore} - Computer Score: ${computerScore}`);
+        console.log(
+          `Player Score: ${playerScore} - Computer Score: ${computerScore}`
+        );
       }
 
       playGame();
     </script>
-</body>
+  </body>
 </html>
