@@ -1,0 +1,57 @@
+body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: #181a1b;
+  color: white;
+  margin-top: 100px;
+}
+
+h1 {
+  font-size: 90px;
+}
+
+button {
+  width: 100px;
+  height: 50px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.playerButtons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 25px;
+  margin-bottom: 100px;
+}
+
+.gameScreen {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  margin-bottom: 75px;
+}
+
+.playerSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.computerSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.winnerPrompt {
+  font-size: 50px;
+  margin-bottom: 50px;
+}
+
+.score {
+  display: flex;
+  gap: 150px;
+}

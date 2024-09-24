@@ -4,80 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock Paper Scissors!</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <script>
-      let playerScore = 0;
-      let computerScore = 0;
+    <h1>Rock Paper Scissors!</h1>
+      <div class='playerButtons'>
+        <button id='rock'>Rock</button>
+        <button id='paper'>Paper</button>
+        <button id='scissors'>Scissors</button>
+      </div>
+      <div class="gameScreen">
+        <div class="playerSection">
+          <h2>Player Choice</h2>
+          <span class="playerChoice"></span>
+        </div>
 
-      function getComputerChoice() {
-        if (Math.floor(Math.random() * 3) === 0) {
-          return "Rock!";
-        } else if (Math.floor(Math.random() * 3) === 1) {
-          return "Paper!";
-        } else {
-          return "Scissors!";
-        }
-      }
+        <div class="computerSection">
+          <h2>Computer Choice</h2>
+          <span class="computerChoice"></span>
+        </div>
+      </div>
+      
+      <span class="winnerPrompt">test</span>
 
-      function getHumanChoice() {
-        let choice = prompt("[R]ock/[P]aper/[S]cissor?");
-        if (choice.toUpperCase() === "R") {
-          return "Rock!";
-        } else if (choice.toUpperCase() === "P") {
-          return "Paper!";
-        } else if (choice.toUpperCase() === "S") {
-          return "Scissors!";
-        } else {
-          return "Invalid Input";
-        }
-      }
 
-      function compareChoices(humanChoice, ComputerChoice) {
-        // Win Conditions
-        if (
-          (humanChoice === "Rock!" && computerChoice === "Scissors!") ||
-          (humanChoice === "Paper!" && computerChoice === "Rock!") ||
-          (humanChoice === "Scissors!" && computerChoice === "Paper!")
-        ) {
-          return "Player";
-        } else if (humanChoice === computerChoice) {
-          return "Tie";
-        } else {
-          return "Computer";
-        }
-      }
+      <div class="score">
+        <p>Player Score: <span class="playerScore">0</span> </p>
+        <p>Computer Score: <span class="computerScore">0</span></p>
+      </div>
 
-      function playRound() {
-        humanChoice = getHumanChoice();
-        console.log("Player: " + humanChoice);
-
-        computerChoice = getComputerChoice();
-        console.log("Computer: " + computerChoice);
-
-        console.log(compareChoices(humanChoice, computerChoice));
-        switch (compareChoices(humanChoice, computerChoice)) {
-          case "Player":
-            ++playerScore;
-            return `Player Wins! ${humanChoice} beats ${computerChoice}`;
-          case "Computer":
-            ++computerScore;
-            return `Computer Wins! ${computerChoice} beats ${humanChoice}`;
-          case "Tie":
-            return "Tie!";
-        }
-      }
-
-      function playGame() {
-        for (let i = 1; i <= 5; i++) {
-          console.log(playRound());
-        }
-        console.log(
-          `Player Score: ${playerScore} - Computer Score: ${computerScore}`
-        );
-      }
-
-      playGame();
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
